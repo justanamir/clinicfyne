@@ -1,16 +1,21 @@
 package main
 
 import (
-	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/widget"
+	"fmt"
+	"log"
+
+	"clinicfyne/storage"
 )
 
 func main() {
-	a := app.New()
-	w := a.NewWindow("Clinic App")
+	db, err := storage.OpenDB("clinic.db")
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	label := widget.NewLabel("Clinic system booted...")
-	w.SetContent(label)
+	if err := storage.RunMigrations(db); err != nil {
+		log.Fatal(err)
+	}
 
-	w.ShowAndRun()
+	fmt.Println("Database initialized successfully")
 }
