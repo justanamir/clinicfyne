@@ -4,7 +4,7 @@ import "time"
 
 type Patient struct {
 	ID          string
-	Fullname    string
+	FullName    string
 	NRIC        string
 	DateOfBirth time.Time
 	Sex         string

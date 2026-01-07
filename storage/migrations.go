@@ -14,7 +14,7 @@ func RunMigrations(db *sql.DB) error {
 			phone TEXT,
 			email TEXT,
 			address TEXT,
-			crated_at TEXT NOT NULL
+			created_at TEXT NOT NULL
 		);
 		`,
 		`
